@@ -1,0 +1,57 @@
+<div class="container-fluid d-flex align-items-center justify-content-center bg-image"
+    style="background-image: url('https://mdbootstrap.com/img/new/fluid/city/018.jpg');height: 100vh;"
+    >
+    <div class="main-section p-3">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>Login</h1>
+            </div>
+        </div>
+    
+        <form [formGroup]="userForm" (ngSubmit)="submit()">
+            <div class="row">
+                <div class="col-lg-12">
+                    <label for="">Email</label>
+                    <input [ngClass]="{
+                        'has-error':userForm.controls.userEmail.touched && userForm.controls.userEmail.invalid,
+                        'has-success' : userForm.controls.userEmail.touched && userForm.controls.userEmail.valid
+                    }" type="email" formControlName="userEmail" class="form-control">
+                    <h6 style="color:red;"
+                    *ngIf="userForm.controls.userEmail.touched && userForm.controls.userEmail.invalid">Enter Valid Email</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <label for="">Password</label>
+                    <input [ngClass]="{
+                        'has-error':    userForm.controls.password.touched && userForm.controls.password.invalid,
+                        'has-success' : userForm.controls.password.touched && userForm.controls.password.valid
+                    }" type="password" formControlName="password" class="form-control">
+                    <h6 style="color:red;"
+                    *ngIf="userForm.controls.password.touched && userForm.controls.password.invalid">Please enter this Field</h6>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-12">
+                    <label for="">Select Type</label>
+                    <select class="form-select" formControlName="type">
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                    <h6 style="color:red;"
+                    *ngIf="userForm.controls.type.touched && userForm.controls.type.invalid">Please enter this Field</h6>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-12">
+                    <button type="submit" class="btn btn-primary btn-sm">Log me In</button>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-lg-12">
+                    <h6>New User?- <a routerLink='register'>Create account</a></h6>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

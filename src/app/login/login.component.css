@@ -1,0 +1,23 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400);
+*{
+    box-sizing: border-box;
+}
+.container-fluid{
+    height: 100vh;
+} 
+.main-section{
+    width: 500px;
+    max-width: 600px;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 20px 20px;
+    font-family: "Montserrat", sans-serif;
+}
+.has-error {
+	box-shadow: 0 0 4px red;
+}
+
+.has-success {
+	box-shadow: 0 0 4px #09C372;
+}

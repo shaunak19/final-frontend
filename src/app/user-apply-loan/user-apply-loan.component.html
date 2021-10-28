@@ -1,0 +1,118 @@
+
+<div class="main-section p-3">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1>Loan Application</h1>
+        </div>
+    </div>
+    <form [formGroup]="userForm">
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="">Name</label>
+                <input [ngClass]="{
+                    'has-error':f.userName.touched && f.userName.invalid,
+                    'has-success' : f.userName.touched && f.userName.valid
+                }" type="text" formControlName="userName" class="form-control">
+                <h6 style="color:red;"
+                *ngIf="f.userName.touched && f.userName.invalid">Please Enter username</h6>
+            </div>
+            <div class="col-lg-6">
+                <label for="">Email</label>
+                <input [ngClass]="{
+                    'has-error':f.userEmail.touched && f.userEmail.invalid,
+                    'has-success' : f.userEmail.touched && f.userEmail.valid
+                }" type="email" formControlName="userEmail" class="form-control">
+                <h6 style="color:red;"
+                *ngIf="f.userEmail.touched && f.userEmail.invalid">Enter Valid Email</h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="">Permanent Address</label>
+                <input [ngClass]="{
+                    'has-error':f.paddress.touched && f.paddress.invalid,
+                    'has-success' : f.paddress.touched && f.paddress.valid
+                }" type="text" formControlName="paddress" class="form-control">
+                <h6 style="color:red;"
+                *ngIf="f.paddress.touched && f.paddress.invalid">Please enter this Field</h6>
+            </div>
+            <div class="col-lg-6">
+                <label for="">Temporary Address</label>
+                <input [ngClass]="{
+                    'has-error':f.taddress.touched && f.taddress.invalid,
+                    'has-success' : f.taddress.touched && f.taddress.valid
+                }" type="text" formControlName="taddress" class="form-control">
+                <h6 style="color:red;"
+                *ngIf="f.taddress.touched && f.taddress.invalid">Please enter this Field</h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="">D.O.B</label>
+                <input [ngClass]="{
+                    'has-error':f.dob.touched && f.dob.invalid,
+                    'has-success' : f.dob.touched && f.dob.valid
+                }" type="date" formControlName="dob" class="form-control">
+                <h6 style="color:red;"
+                *ngIf="f.dob.touched && f.dob.invalid">Please enter this Field</h6>
+            </div>
+            <div class="col-lg-6">
+                <label for="">Loan Type</label>
+                <select class="form-select" formControlName="type" (ngModelChange)="modo($event)">
+                    <option value="Vloan">Vehicle Loan</option>
+                    <option value="Eloan">Education Loan</option>
+                    <option value="Ploan">Personal Loan</option>
+                    <option value="Hloan">Home Loan</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="">Interest Rate - %</label>
+                <input formControlName="iRate" class="form-control">
+            </div>
+            <div class="col-lg-6">
+                <label for="">Payment Period (Months)</label>
+                <input [ngClass]="{
+                    'has-error':f.paymentPeriod.touched && f.paymentPeriod.invalid,
+                    'has-success' : f.paymentPeriod.touched && f.paymentPeriod.valid
+                }"
+                formControlName="paymentPeriod" class="form-control" type="number">
+                <h6 style="color:red;"
+                *ngIf="f.paymentPeriod.touched && f.paymentPeriod.invalid">Please enter this Field</h6>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="">Application Date</label>
+                <input [ngClass]="{
+                    'has-error':f.Adate.touched && f.Adate.invalid,
+                    'has-success' : f.Adate.touched && f.Adate.valid
+                }" type="date" formControlName="Adate" class="form-control">
+                <h6 style="color:red;"
+                *ngIf="f.Adate.touched && f.Adate.invalid">Please enter this Field</h6>
+            </div>
+            <div class="col-lg-6">
+                <label for="">Loan Amount</label>
+                <input [ngClass]="{
+                    'has-error':f.lamnt.touched && f.lamnt.invalid
+                }" type="number" formControlName="lamnt" class="form-control">
+                <h6 style="color:red;"
+                *ngIf="f.lamnt.touched && f.lamnt.invalid">Please enter this Field</h6>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-lg-6">
+                <button type="submit" class="btn btn-primary btn-sm" (click)="submit()">Submit</button>
+            </div>
+            <div class="col-lg-6">
+                <button 
+                *ngIf="f.type.valid && f.paymentPeriod.valid && f.lamnt.valid"
+                (click)="emiCalculator()"
+                class="btn btn-primary btn-sm">Calculate EMI</button>
+                <h6 style="color:green;margin-top: 20px;"
+                *ngIf="isCal">EMI : (₹) {{Emi}}</h6>
+            </div>
+        </div>
+    </form>
+</div>

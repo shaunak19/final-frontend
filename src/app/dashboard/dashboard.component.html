@@ -1,0 +1,54 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Applied Loans for {{usernm}}</h1>
+    <button (click)="redirect()" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i>Apply</i></button>
+</div>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Loan Details</h6>
+        <p class="m-0 text-secondary">**Eloan:Education Loan, Ploan:Personal Loan, Vloan:Vehicle Loan, Hloan:Home Loan</p>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>D.O.B</th>
+                        <th>Permanent Address</th>
+                        <th>Temporary Address</th>
+                        <th>Loan Type</th>
+                        <th>Interest Rate - %</th>
+                        <th>Payment Period(Months)</th>
+                        <th>Application Date</th>
+                        <th>Loan Amount</th>
+                        <th>EMI</th>
+                        <th>Approved</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let user of userList,index as i">
+                        <td>{{i+1}}</td>
+                        <td>{{user.userName}}</td>
+                        <td>{{user.userEmail}}</td>
+                        <td>{{user.dob}}</td>
+                        <td>{{user.paddress}}</td>
+                        <td>{{user.taddress}}</td>
+                        <td>{{user.type}}</td>
+                        <td>{{user.iRate}}</td>
+                        <td>{{user.paymentPeriod}}</td>
+                        <td>{{user.Adate}}</td>
+                        <td>{{user.lamnt}}</td>
+                        <td>{{user.emi}}</td>
+                        <td>{{user.approved}}</td>
+                    </tr>
+                </tbody>
+
+            </table>
+            </div>
+        </div>
+</div>

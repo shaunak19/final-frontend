@@ -1,0 +1,30 @@
+<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right mt-3" id="sidebar-wrapper"  [ngClass]="status ? 'hide' : 'show'">
+      <div class="sidebar-heading" style="color: brown;">User Menu</div>
+      <div class="list-group list-group-flush">
+        <a routerLink="dashboard" class="list-group-item list-group-item-action bg-light" [ngClass]="currentRoute==='/sidebar/dashboard' ? 'current' : ''">Dashboard</a>
+        <a routerLink="user-overview" class="list-group-item list-group-item-action bg-light" [ngClass]="currentRoute==='/sidebar/user-overview' ? 'current' : ''">Overview</a>
+        <a routerLink="user-apply-loan" class="list-group-item list-group-item-action bg-light" [ngClass]="currentRoute==='/sidebar/user-apply-loan' ? 'current' : ''">Apply for Loan</a>
+        <a routerLink="user-edit-profile" class="list-group-item list-group-item-action bg-light" [ngClass]="currentRoute==='/sidebar/user-edit-profile' ? 'current' : ''">Edit Profile</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+  
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+  
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+       
+        <div class="container-fluid d-flex g-5">
+          <button class="btn btn-outline-warning" (click)="clickEvent()">Menu</button>
+          <button class="btn btn-outline-primary" (click)="logout()">Logout</button>
+        </div>
+      </nav>
+      <router-outlet></router-outlet>
+    </div>
+    <!-- /#page-content-wrapper -->
+  
+  </div>
+  <!-- /#wrapper -->
